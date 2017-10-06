@@ -1,0 +1,129 @@
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!-- The main content view -->
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.rowin.microbrewerysearcher.activity.MapsActivity">
+        <!--Container voor de view voor input en foutmelding-->
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:animateLayoutChanges="true">
+            <!--View voor de input van een postcode-->
+            <android.support.v7.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/postalcode_container"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                card_view:cardCornerRadius="4dp"
+                card_view:cardBackgroundColor="@android:color/white">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ImageButton
+                        android:id="@+id/nav_drawer_icon"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:src="@drawable/nav_drawer_icon"
+                        android:layout_gravity="end"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@android:color/transparent"
+                        android:onClick="openDrawer"
+                        />
+                    <EditText
+                        android:id="@+id/postalcode_edit_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="30dp"
+                        android:layout_marginRight="30dp"
+                        android:layout_toRightOf="@+id/nav_drawer_icon"
+                        android:layout_toEndOf="@+id/nav_drawer_icon"
+                        android:layout_marginTop="10dp"
+                        android:background="@android:color/transparent"
+                        android:ems="10"
+                        android:hint="@string/postcode_edit_text_hint_text"
+                        android:inputType="textPersonName" />
+                    <ImageButton
+                        android:id="@+id/search_button"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:src="@drawable/toolbar_find"
+                        android:contentDescription="@string/search_button_content_description"
+                        android:layout_gravity="end"
+                        android:layout_toRightOf="@+id/postalcode_edit_text"
+                        android:layout_toEndOf="@+id/postalcode_edit_text"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@android:color/transparent"
+                        android:onClick="showNearestBreweryOnMap"/>
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+            <!-- View voor het tonen van een foutmelding -->
+            <android.support.v7.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/error_container"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:visibility="invisible"
+                card_view:cardCornerRadius="4dp"
+                card_view:cardBackgroundColor="@android:color/white"
+                android:layout_below="@+id/postalcode_container">
+
+                <ImageView
+                    android:id="@+id/error_cross"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/error_icon"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"/>
+
+                <TextView
+                    android:id="@+id/error_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="U heeft geen, of een ongeldige, postcode ingevoerd"
+                    android:textSize="12sp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginStart="40dp"
+                    android:layout_gravity="center_vertical"/>
+
+            </android.support.v7.widget.CardView>
+
+        </RelativeLayout>
+    </fragment>
+
+    <!-- De navigation drawer -->
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/left_drawer"
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:choiceMode="singleChoice"
+        android:background="@android:color/white" />
+
+</android.support.v4.widget.DrawerLayout>
+
+
+
+

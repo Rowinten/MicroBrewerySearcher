@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">MicroBrewerySearcher</string>
+    <string name="title_activity_maps">MicroBrewSearcher</string>
+    <string name="postcode_edit_text_hint_text">Postcode</string>
+    <string name="brewery_opened">Geopend</string>
+    <string name="brewery_closed">Gesloten</string>
+    <string name="adres">Adres: %1$s</string>
+    <string name="sells">Verkoopt : %1$s</string>
+    <string name="style">Style: %1$s</string>
+    <string name="volume">Volume: %1$d</string>
+    <string name="alcohol">Alcohol: %1$d</string>
+    <string name="keg">Keg: %1$s</string>
+    <string name="te_address">%1$s te %2$s</string>
+    <string name="breweries_at_distance_from">Brouwerijen op afstand van %1$s</string>
+    <string name="distance">~%1$d km</string>
+
+    <string name="search_button_content_description">Knop dat de het zoeken van de dichstbijzijnde brouwerijen initieert</string>
+</resources>
