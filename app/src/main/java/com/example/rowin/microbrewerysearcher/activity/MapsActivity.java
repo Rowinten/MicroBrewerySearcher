@@ -234,8 +234,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             String breweryCity = breweryJsonObject.getString("city");
             JSONArray openingTimes = breweryJsonObject.getJSONArray("open");
 
-            String zipCodeWithoutWhiteLines = breweryZipcode.replace("\\s", "");
-            Address address = geocoding.getCoordinatesFrom(zipCodeWithoutWhiteLines);
+            Address address = geocoding.getCoordinatesFrom(breweryAddress + ", " + breweryCity);
             Double latitude = address.getLatitude();
             Double longitude = address.getLongitude();
 
